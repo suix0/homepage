@@ -13,41 +13,21 @@
 body {
   height: 100svh;
   margin: 0;
-
-  overflow-x: hidden;
 }
+
 
 header {
-  position: relative;
-}
-
-.headerStyle {
-  position: absolute;
-  z-index: 0;
-  width: 120%;
-  height: 550px;
-  isolation: isolate;
-  background-color: var(--main);
-
-  transform: translate(-80px, -200px) rotate(-10deg);
-}
-
-.headerContent {
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 480px;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  
+  height: 550px;
+  clip-path: polygon(0 0, 100% 0%, 100% 70%, 0 100%);
+  background-color: var(--main);
   color: var(--fourth);
 }
 
-.headerContent > div + div {
+
+header > div + div {
   padding: 1rem;
   min-width: 600px;
   width: 600px;
@@ -57,7 +37,7 @@ header {
 
 }
 
-.headerContent > div + div h3 {
+header > div + div h3 {
   color: var(--main);
   margin: 0 0 1rem 0;
   font-weight: normal;
@@ -98,5 +78,6 @@ svg {
   gap: 1rem;  
 
   margin-top: 3rem;
+
 }
 
