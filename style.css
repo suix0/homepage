@@ -11,6 +11,8 @@
 
 
 body {
+  display: grid;
+  grid-template-columns: 1fr 1000px 1fr;
   height: 100svh;
   margin: 0;
 
@@ -18,39 +20,61 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  grid-column: 1/4;
+}
+
+svg {
+  width: 32px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-column: 2/3;
+  padding-top: 5rem;
+  gap: 3rem;
   position: relative;
 }
 
+main div {
+  display: flex;
+  flex-direction: column;
+}
+
+main > p {
+  top: 0;
+  margin: 1rem 0;
+  position: absolute;
+  font-size: 2rem;
+}
+
+
 .headerStyle {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   width: 120%;
   height: 550px;
-  isolation: isolate;
   background-color: var(--main);
-
-  transform: translate(-80px, -200px) rotate(-10deg);
+  clip-path: polygon(0 0, 100% 0%, 100% 30%, 0 100%);
 }
 
 .headerContent {
-  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 480px;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  
+  width: 1000px;
+
   color: var(--fourth);
 }
 
 .headerContent > div + div {
   padding: 1rem;
-  min-width: 600px;
-  width: 600px;
   background-color: var(--third);
   color: black;
   box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
@@ -64,15 +88,10 @@ header {
   font-size: 3rem;
 } 
 
-svg {
-  width: 32px;
-}
 
 .imgContainer {
   position: relative;
-
   height: max-content;
-
 }
 
 .imgContainer p {
@@ -84,12 +103,13 @@ svg {
   margin: 0;
   text-align: center;
 
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 .imgContainer img {
-  width: 420px;
+  width: 380px;
   height: auto;
+  
 }
 
 .links {
@@ -100,3 +120,34 @@ svg {
   margin-top: 3rem;
 }
 
+.firstDescription {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.projectLinks {
+  display: flex;
+  flex-direction: row;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.67);
+  border-radius: 28px;
+}
+
+.project img {
+  border-radius: 28px;
+}
+
+.projectDescription {
+  padding: 1rem;
+}
+
+.projectName {
+  font-weight: bold;
+}
