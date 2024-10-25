@@ -2,8 +2,6 @@
 // Change the img src to corresponding gif equivalent
 const projectImages = document.querySelectorAll('.projectImg');
 const projectImagesArr = [...projectImages];
-// const projectImagesContainer = document.querySelectorAll('.projectImgContainer');
-// const projectImagesContainerArr = [...projectImagesContainer];
 
 // Change to gif when mouse enters
 projectImagesArr.forEach((projectImg) => {
@@ -21,13 +19,11 @@ projectImagesArr.forEach((projectImg) => {
     } else if (projectImg.getAttribute('data-project-name') === 'battleShip') {
       projectImg.src = './assets/gif/battleshipGif.gif';
     } 
-    const imgContainer = document.querySelector(`[data-img-name='${projectImg.getAttribute('data-project-name')}']`)
-    imgContainer.classList.add('hover');
+    projectImg.classList.add('hover');
   })
 
   projectImg.addEventListener('mouseleave', () => {
-    const imgContainer = document.querySelector(`[data-img-name='${projectImg.getAttribute('data-project-name')}']`) 
-    imgContainer.classList.remove('hover');
+    projectImg.classList.remove('hover');
     if (projectImg.getAttribute('data-project-name') === 'etchASketch') {
       projectImg.src = './assets/Etch-a-Sketch.png';
     } else if (projectImg.getAttribute('data-project-name') === 'calculator') {
@@ -44,4 +40,17 @@ projectImagesArr.forEach((projectImg) => {
   })
 })
 
-// Change back to png when mouse leaves
+
+const maxWidth1024 = (mql) => {
+  if (mql.matches) {
+
+  }
+}
+
+const mql = window.matchMedia('(max-width: 800px)');
+
+maxWidth1024(mql);
+
+mql.addEventListener('change', () => {
+  maxWidth1024(mql);
+})
